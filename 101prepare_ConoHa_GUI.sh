@@ -28,6 +28,7 @@ yum -y install mkisofs
 SetupDisk 0
 SetupDisk 1
 
+mkfs.ext4 /root/vdisk0
 echo 'mount /root/vdisk0 /mnt/mnt0' >> >> /root/.bashrc
 
 updatedb
