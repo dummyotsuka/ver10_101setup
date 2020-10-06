@@ -32,7 +32,6 @@ yum -y install epel-release
 yum -y install xrdp
 yum -y install tigervnc-server
 systemctl enable xrdp
-systemctl enable xrdp
 systemctl start xrdp
 
 systemctl set-default graphical.target
