@@ -1,6 +1,9 @@
 
 function SetupDisk() { if ls "/root/vdisk$1" ; then echo "/dev/vdisk$1のディスクは研修用に準備済みです"; else dd if=/dev/zero of=/root/vdisk$1 bs=1024 count=300000; echo "/root/vdisk$1を再構築しました"; fi; }
 echo 'function SetupDisk() { if ls "/root/vdisk$1" ; then echo "/dev/vdisk$1のディスクは研修用に準備済みです"; else dd if=/dev/zero of=/root/vdisk$1 bs=1024 count=300000; echo "/root/vdisk$1を再構築しました"; fi; }' >> /root/.bashrc
+mkdir /mnt/mnt0
+
+
 
 kill `cat /var/run/yum.pid`
 wait 5
@@ -24,6 +27,8 @@ yum -y install mkisofs
 
 SetupDisk 0
 SetupDisk 1
+
+echo 'mount /root/vdisk0 /mnt/mnt0' >> >> /root/.bashrc
 
 updatedb
 
