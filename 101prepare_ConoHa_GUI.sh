@@ -25,16 +25,18 @@ yum -y install mkisofs
 SetupDisk 0
 SetupDisk 1
 
-yum -y groupinstall "Desktop"
-yum -y groupinstall "X Window System"
-yum -y groupinstall "General Purpose Desktop"
-yum -y groupinstall "Japanese Support"
+
+yum -y groupinstall "GNOME Desktop"
+
 yum -y install epel-release
 yum -y install xrdp
-yum -y install tigervnc*
+yum -y install tigervnc-server
+systemctl enable xrdp
 systemctl enable xrdp
 systemctl start xrdp
 
+systemctl set-default graphical.target
+systemctl disable firewalld
 echo "export LANG=ja_JP.UTF-8" >> /etc/bashrc
 echo "export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" >> /etc/bashrc
 
