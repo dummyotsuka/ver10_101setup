@@ -25,6 +25,7 @@ yum -y install mkisofs
 SetupDisk 0
 SetupDisk 1
 
+updatedb
 
 yum -y groupinstall "GNOME Desktop"
 
